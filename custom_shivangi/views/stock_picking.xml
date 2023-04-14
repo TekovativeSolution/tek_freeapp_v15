@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_picking_inherit_form" model="ir.ui.view">
+            <field name="name">Stock Picking Inherit Form View</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='picking_type_id']" position="after">
+                    <field name="truck_no"/>
+                    <field name="empty_truck_weight"/>
+                    <field name="loaded_truck_weight"/>
+                    <field name="final_weight"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
