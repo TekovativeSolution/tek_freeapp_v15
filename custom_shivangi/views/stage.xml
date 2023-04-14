@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+	<record id="stage_name_tree_view" model="ir.ui.view">
+            <field name="name">stage.name.tree.view</field>
+            <field name="model">stage.name</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="stage_name_form_inherit" model="ir.ui.view">
+            <field name="name">stage.name.form.view</field>
+            <field name="model">stage.name</field>
+            <field name="arch" type="xml">
+            	<form>
+	            	<sheet>
+	            		<group >
+	                     	<group>
+								<field name="name"/>
+							</group>
+	                	</group>
+	            	</sheet>
+	            </form>
+            </field>
+         </record>
+
+            <record id="action_stage_name" model="ir.actions.act_window">
+                <field name="name">Stage</field>
+                <field name="res_model">stage.name</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+       	<menuitem id="menu_stage_name"
+				  action="action_stage_name"
+				  name="Stage"
+				  sequence="121"
+				  parent='contacts.res_partner_menu_config'/>
+
+    </data>
+</odoo>

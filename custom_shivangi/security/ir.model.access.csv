@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stage_name_user,stage.name,model_stage_name,base.group_user,1,1,1,1
+access_project_type_user,project.type,model_project_type,base.group_user,1,1,1,1
+access_district_name_user,district.name,model_district_name,base.group_user,1,1,1,1
+access_city_name_user,city.name,model_city_name,base.group_user,1,1,1,1
+access_order_booking_user,order.booking.user,model_order_booking,sales_team.group_sale_salesman,1,1,1,1
+access_truck_no_user,truck.no.user,model_truck_no,sales_team.group_sale_salesman,1,1,1,1

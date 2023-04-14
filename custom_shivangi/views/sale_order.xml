@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_order_inherit_form" model="ir.ui.view">
+            <field name="name">Sale Order Inherit Form View</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='partner_invoice_id']" position="after">
+                    <field name="booking_id"/>
+                     <field name="vehicle"/>
+                     <field name="truck_no"/>
+                     <field name="empty_truck_weight"/>
+                     <field name="loaded_truck_weight"/>
+                     <field name="final_weight"/>
+                 </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+
+                    <field name="booking_price"/>
+                    <field name="cash_discount"/>
+                    <field name="consignee_billing_discount"/>
+                    <field name="invoice_discount"/>
+                    <field name="custom_charges"/>
+                    <field name="freight_discount"/>
+                    <field name="for_price"/>
+
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']" position="after">
+                    <field name="bundle"/>
+                    <field name="avg_wt_bundle"/>
+                    <field name="extra_charges"/>
+                    <field name="final_rate" />
+
+                </xpath>
+<!--                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_draft']" position="after">
+                    <button name="calculate" attrs="{'invisible':[('state','in',['done','cancel'])]}" type="object" string="Calculate" class="oe_highlight"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='order_line']/tree/field[@name='price_total']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

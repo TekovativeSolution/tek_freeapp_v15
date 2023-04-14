@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="inherit_view_partner_shivangi_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="4"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="after">
+                    <label for="capacity" string="Capacity"/>
+                    <div>
+                        <field name="capacity" class="oe_inline"/><![CDATA[&nbsp;]]>MT/Month
+                    </div>
+                    <field name="dealer_pro_selection"/>
+                    <field name="stage_id" attrs="{'invisible': [('dealer_pro_selection', '!=', 'project')]}"/>
+                    <field name="project_type_id" attrs="{'invisible': [('dealer_pro_selection', '!=', 'project')]}"/>
+                    <field name="total_proj_size" attrs="{'invisible': [('dealer_pro_selection', '!=', 'project')]}"/>
+                    <field name="desg_selection" attrs="{'invisible': [('company_type', '!=', 'person')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="brand"/>
+                    <field name="existing_broker"/>
+                    <field name="status_selection"/>
+                    <field name="ref"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="after">
+                    <field name="city_id" placeholder="City" class="o_address_city"/>
+                    <field name="district_id" placeholder="District" class="o_address_city"/><![CDATA[&nbsp;]]>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                            <field name="is_distributor"/>
+                            <field name="booking_limit" />
+                            <field name="pending_limit"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

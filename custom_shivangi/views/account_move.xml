@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_move_inherit_form" model="ir.ui.view">
+            <field name="name">Account Move Inherit Form View</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+
+                    <field name="truck_no"/>
+                    <field name="empty_truck_weight"/>
+                    <field name="loaded_truck_weight"/>
+                    <field name="final_weight"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="booking_price"/>
+                    <field name="cash_discount"/>
+                     <field name="consignee_billing_discount"/>
+                    <field name="invoice_discount"/>
+                    <field name="custom_charges"/>
+                    <field name="for_price"/>
+                    <field name="freight_discount"/>
+                    <field name="freight_difference"/>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="after">
+                    <field name="bundle"/>
+                    <field name="avg_wt_bundle"/>
+                    <field name="extra_charges"/>
+                    <field name="final_rate"/>
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
